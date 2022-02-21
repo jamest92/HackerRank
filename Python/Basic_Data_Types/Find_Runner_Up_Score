@@ -1,0 +1,20 @@
+# Given the participants' score sheet for your University Sports Day, 
+# you are required to find the runner-up score. You are given n scores. 
+# Store them in a list and find the score of the runner-up.
+
+# The first line contains n E.g. 5. The second line contains an array A[i] of integers each separated by a space. E.g. 2 3 6 6 5
+
+# Constraints:
+# 2 <= n <= 10
+# -100 <= A[i] <= 100
+
+
+
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+
+    
+arr = list(arr)
+print(max(x for x in arr if x != max(arr)))
+# it finds the number in the list that is not the max, and takes the max of that list
