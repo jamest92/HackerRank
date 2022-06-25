@@ -1,0 +1,32 @@
+P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
+
+* * * * * 
+* * * * 
+* * * 
+* * 
+*
+Write a query to print the pattern P(20).
+
+
+One method (MySQL):
+
+
+SET @number = 21;  
+SELECT REPEAT ('* ', @number := @number -1)
+FROM information_schema.tables;
+
+
+
+notes:
+- The INFORMATION_SCHEMA.TABLES view allows you to get information about all tables and views within a database. 
+By default it will show you this information for every single table and view that is in the database.
+
+-User defined variables start with @ in MYSQL.
+:= is an operator that does not require you to use the key word SET before it.
+Basically @number := @number - 1 is saying decrease the @number user variable each time it's printed out. 
+In pseudocode it would be number = number - 1.
+
+-The function works like that: repeat(string, times)
+So, at the beginning we want to repeat the '*' symbol 20 times, but we also want to decrement its value by one in each iteration. That's why we start with 21.
+So in the first iteration we apply 21-1=20, and we repeat the '*' symbol 20 times.
+In the second we will apply 20-1=19, and we will repeat the '*' symbol 19 times.
